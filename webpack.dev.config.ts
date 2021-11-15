@@ -3,6 +3,7 @@ import { Configuration, HotModuleReplacementPlugin } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 const config: Configuration = {
   mode: 'development',
@@ -57,6 +58,7 @@ const config: Configuration = {
     new MiniCssExtractPlugin({
       filename: 'style.[chunkhash].css',
     }),
+    new BundleAnalyzerPlugin(),
   ],
   devServer: {
     static: path.join(__dirname, 'build'),
